@@ -1,0 +1,80 @@
+/* EINHAUS Prozesslandschaft - gemeinsames Design (aus dem Lackier-Dashboard abgeleitet) */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
+
+:root{
+  --primary:#1a3a5c; --primary-light:#2558a0; --border:#c0ccd8; --bg:#f4f6f9;
+  --card:#ffffff; --header:#ffffff; --footer:#ffffff; --text:#1a2535; --text-muted:#5a6a7a;
+  --icon-bg:#e8eef7; --logo-text:#111; --logo-tagline:#444; --divider:#c0ccd8;
+}
+[data-theme="dark"]{
+  --primary:#4a8fd4; --primary-light:#6aaee8; --border:#2e3c4e; --bg:#0f1923;
+  --card:#1a2635; --header:#111e2d; --footer:#111e2d; --text:#e0eaf4; --text-muted:#7a9ab8;
+  --icon-bg:#1e3048; --logo-text:#ffffff; --logo-tagline:#aaaaaa; --divider:#2e3c4e;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);
+  display:flex;flex-direction:column;transition:background .25s,color .25s}
+
+header{background:var(--header);padding:18px 32px;box-shadow:0 2px 8px rgba(0,0,0,.15);
+  display:flex;align-items:center;gap:24px;flex-shrink:0;z-index:10;transition:background .25s}
+.logo-wrap{display:flex;flex-direction:column;gap:6px}
+.logo-text{font-size:38px;font-weight:900;letter-spacing:4px;color:var(--logo-text);line-height:1;
+  font-family:'Comfortaa','Arial Black',Arial,sans-serif;transition:color .25s}
+.logo-sub-row{display:flex;align-items:center;gap:10px}
+.logo-stripes{display:flex;gap:3px;height:12px}
+.logo-stripes span{display:block;width:16px;height:12px;transform:skewX(-18deg)}
+.s1{background:#c0c0c0}.s2{background:#ffd400}.s3{background:#44bef0}.s4{background:#3aaa35}
+.s5{background:#e8007d}.s6{background:#e83010}.s7{background:#1155bb}
+.logo-tagline{font-size:10px;font-weight:bold;letter-spacing:1.5px;color:var(--logo-tagline);text-transform:uppercase}
+.header-divider{width:1px;height:52px;background:var(--divider);margin:0 8px;flex-shrink:0}
+.header-info{display:flex;flex-direction:column}
+.header-title{font-size:20px;font-weight:bold;color:var(--primary);letter-spacing:.5px}
+.header-subtitle{font-size:12px;color:var(--text-muted);margin-top:3px}
+
+.header-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.btn-back{display:inline-flex;align-items:center;gap:8px;background:var(--icon-bg);
+  border:1px solid var(--border);border-radius:20px;padding:7px 16px;cursor:pointer;font-size:14px;
+  font-weight:bold;color:var(--primary);text-decoration:none;white-space:nowrap;transition:all .2s}
+.btn-back:hover{border-color:var(--primary-light);background:var(--card)}
+.btn-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle{background:var(--icon-bg);border:1px solid var(--border);border-radius:20px;padding:6px 14px;
+  cursor:pointer;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:6px;
+  white-space:nowrap;flex-shrink:0;transition:all .2s}
+.theme-toggle:hover{border-color:var(--primary-light);color:var(--text)}
+.theme-toggle .icon{font-size:15px}
+
+main{flex:1;max-width:980px;margin:0 auto;width:100%;padding:40px 24px}
+.section-title{font-size:13px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);
+  margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--border);transition:color .25s,border-color .25s}
+.section-title:not(:first-of-type){margin-top:34px}
+
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.tool-card{background:var(--card);border:2px solid var(--border);border-radius:10px;padding:14px;cursor:pointer;
+  text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px;box-shadow:0 2px 6px rgba(0,0,0,.05);
+  transition:all .15s}
+.tool-card:hover{border-color:var(--primary-light);box-shadow:0 6px 20px rgba(37,88,160,.2);transform:translateY(-3px)}
+.tool-icon{width:32px;height:32px;background:var(--icon-bg);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.tool-icon svg{width:16px;height:16px;stroke:var(--primary-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tool-name{font-size:14px;font-weight:bold;color:var(--primary)}
+.tool-desc{font-size:11px;color:var(--text-muted);line-height:1.5}
+.tool-arrow{margin-top:auto;font-size:13px;color:var(--primary-light);align-self:flex-end}
+
+.empty-state{background:var(--card);border:2px dashed var(--border);border-radius:12px;padding:28px;text-align:center;
+  margin-bottom:18px;color:var(--text-muted)}
+.empty-icon{font-size:34px;margin-bottom:8px}
+.empty-title{font-size:16px;font-weight:bold;color:var(--text);margin-bottom:6px}
+.empty-state p{font-size:13px;line-height:1.6;max-width:640px;margin:0 auto}
+.empty-state code{background:var(--icon-bg);padding:1px 6px;border-radius:4px;font-size:12px}
+.add-card{border-style:dashed}
+
+footer{text-align:center;padding:16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border);
+  background:var(--footer);flex-shrink:0;transition:background .25s,border-color .25s}
+
+@media (max-width:640px){
+  header{flex-wrap:wrap;gap:12px;padding:14px 16px}
+  .logo-text{font-size:28px}
+  .header-divider{display:none}
+  .header-right{width:100%;margin-left:0;justify-content:flex-start}
+  main{padding:24px 14px}
+}
