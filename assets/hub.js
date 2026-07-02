@@ -10,10 +10,10 @@
     try{localStorage.setItem(KEY,next);}catch(e){}
     apply(next);
   };
-  var saved='light'; try{saved=localStorage.getItem(KEY)||'light';}catch(e){}
+  var saved='dark'; try{saved=localStorage.getItem(KEY)||'dark';}catch(e){}
   apply(saved);
   document.addEventListener('DOMContentLoaded',function(){
-    var s='light'; try{s=localStorage.getItem(KEY)||'light';}catch(e){}
+    var s='dark'; try{s=localStorage.getItem(KEY)||'dark';}catch(e){}
     apply(s);
     var d=document.getElementById('headerDatum');
     if(d){d.textContent=new Date().toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit',year:'numeric'});}
