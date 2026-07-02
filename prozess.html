@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prozesslandschaft - Einhaus Prozesslandschaft</title>
+<title id="procTitleTag">Prozess - Einhaus Prozesslandschaft</title>
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/hub.js"></script>
 <script src="struktur.js"></script>
@@ -20,15 +20,16 @@
   </div>
   <div class="header-divider"></div>
   <div class="header-info">
-    <div class="header-title">Prozesslandschaft</div>
-    <div class="header-subtitle">EINHAUS Oberfl&auml;chenveredelung GmbH &middot; <span id="headerDatum"></span></div>
+    <div class="header-title" id="procTitle">Prozess</div>
+    <div class="header-subtitle">Prozesslandschaft &middot; <span id="headerDatum"></span></div>
   </div>
   <div class="header-right">
+    <a class="btn-back" href="index.html"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Prozesslandschaft</a>
     <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()"><span class="icon">&#127769;</span> Dunkel</button>
   </div>
 </header>
 <main id="content"></main>
 <footer>EINHAUS Oberfl&auml;chenveredelung GmbH &nbsp;&middot;&nbsp; Saarlandstr. 375a, 55411 Bingen</footer>
-<script>document.addEventListener("DOMContentLoaded", renderHub);</script>
+<script>document.addEventListener("DOMContentLoaded", renderProzess);</script>
 </body>
 </html>

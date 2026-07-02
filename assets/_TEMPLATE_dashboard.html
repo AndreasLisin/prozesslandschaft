@@ -1,9 +1,17 @@
 <!DOCTYPE html>
+<!--
+  STARTER-VORLAGE fuer ein eigenes Dashboard/Tool.
+  1) Diese Datei in den Ordner deines Prozesses kopieren (z.B. eol/mein_tool.html)
+     und umbenennen. (Ordner ggf. neu anlegen - Ordnername = slug des Prozesses.)
+  2) In struktur.js beim passenden Prozess unter "tiles" verlinken, z.B.:
+        { name: "Mein Tool", url: "eol/mein_tool.html", beschreibung: "..." }
+  3) Unten deinen Inhalt einbauen. Design/Kopf kommen automatisch aus ../assets/style.css.
+-->
 <html lang="de" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Risikomanagement - Einhaus Prozesslandschaft</title>
+<title>Mein Tool - Einhaus Prozesslandschaft</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/hub.js"></script>
 </head>
@@ -18,8 +26,8 @@
   </div>
   <div class="header-divider"></div>
   <div class="header-info">
-    <div class="header-title">Risikomanagement</div>
-    <div class="header-subtitle">Prozesslandschaft &middot; <span id="headerDatum"></span></div>
+    <div class="header-title">Mein Tool</div>
+    <div class="header-subtitle">Prozess &middot; <span id="headerDatum"></span></div>
   </div>
   <div class="header-right">
     <a class="btn-back" href="../index.html"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Prozesslandschaft</a>
@@ -27,19 +35,8 @@
   </div>
 </header>
 <main>
-<div class="section-title">Dashboards &amp; Tools</div>
-<div class="empty-state">
-  <div class="empty-icon">&#128679;</div>
-  <div class="empty-title">Noch kein Dashboard hinterlegt</div>
-  <p>F&uuml;r den Prozess &bdquo;Risikomanagement&ldquo; kann hier ein eigenes Dashboard aufgebaut werden. Lege deine HTML-Seite in diesem Ordner ab und trage sie unten als Kachel ein. Anleitung: siehe <code>README.md</code> und <code>assets/_TEMPLATE_prozess.html</code>.</p>
-</div>
-<div class="tool-grid">
-  <a class="tool-card add-card" href="../assets/_TEMPLATE_prozess.html" target="_blank" rel="noopener">
-    <div class="tool-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-    <div class="tool-name">Neues Dashboard aufbauen</div>
-    <div class="tool-desc">Vorlage &ouml;ffnen und als Startpunkt kopieren.</div>
-  </a>
-</div>
+  <div class="section-title">Mein Bereich</div>
+  <p style="line-height:1.6">Hier kommt der Inhalt deines Dashboards hin.</p>
 </main>
 <footer>EINHAUS Oberfl&auml;chenveredelung GmbH &nbsp;&middot;&nbsp; Saarlandstr. 375a, 55411 Bingen</footer>
 </body>
