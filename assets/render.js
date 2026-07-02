@@ -18,6 +18,18 @@
 
   function data() { return (window.PROZESSLANDSCHAFT && window.PROZESSLANDSCHAFT.gruppen) || []; }
 
+  // Merkzeichen setzen, bevor ein externes Tool geoeffnet wird: dessen "Zurueck"-
+  // Knopf zeigt dann zurueck zu DIESEM Prozess in der Prozesslandschaft (statt zum
+  // Dashboard Lackierung). Wird von den Tool-Seiten in assets/zurueck-kontext.js gelesen
+  // (setzt nur voraus, dass beide Seiten auf derselben Domain laufen).
+  window.__plSetBack = function (slug) {
+    try {
+      var folder = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+      var url = location.origin + folder + "prozess.html?p=" + encodeURIComponent(slug);
+      localStorage.setItem("pl-back-to", JSON.stringify({ url: url, label: "Prozesslandschaft", ts: Date.now() }));
+    } catch (e) { /* kein Effekt bei Fehlern */ }
+  };
+
   function findProzess(slug) {
     var g = data();
     for (var i = 0; i < g.length; i++) {
@@ -81,8 +93,9 @@
         var t = tiles[i];
         var arrow = isAbsolute(t.url) ? "&#8599;" : "&rarr;";
         var target = isAbsolute(t.url) ? ' target="_blank" rel="noopener"' : "";
+        var onclick = isAbsolute(t.url) ? ' onclick="window.__plSetBack(\'' + p.slug + '\')"' : "";
         cards +=
-          '<a class="tool-card" href="' + esc(href(t.url)) + '"' + target + ">" +
+          '<a class="tool-card" href="' + esc(href(t.url)) + '"' + target + onclick + ">" +
           '<div class="tool-icon">' + iconSvg(t.icon ? null : DOC_ICON) + "</div>" +
           '<div class="tool-name">' + esc(t.name) + "</div>" +
           (t.beschreibung ? '<div class="tool-desc">' + esc(t.beschreibung) + "</div>" : "") +
