@@ -18,17 +18,18 @@
 
   function data() { return (window.PROZESSLANDSCHAFT && window.PROZESSLANDSCHAFT.gruppen) || []; }
 
-  // Merkzeichen setzen, bevor ein externes Tool geoeffnet wird: dessen "Zurueck"-
-  // Knopf zeigt dann zurueck zu DIESEM Prozess in der Prozesslandschaft (statt zum
-  // Dashboard Lackierung). Wird von den Tool-Seiten in assets/zurueck-kontext.js gelesen
-  // (setzt nur voraus, dass beide Seiten auf derselben Domain laufen).
-  window.__plSetBack = function (slug) {
-    try {
-      var folder = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
-      var url = location.origin + folder + "prozess.html?p=" + encodeURIComponent(slug);
-      localStorage.setItem("pl-back-to", JSON.stringify({ url: url, label: "Prozesslandschaft", ts: Date.now() }));
-    } catch (e) { /* kein Effekt bei Fehlern */ }
-  };
+  // Rücksprung-Ziel fuer externe Tools: wird direkt als URL-Parameter an den
+  // Link angehaengt (kein localStorage/Tab-Timing noetig). Das Ziel-Tool liest
+  // diesen Parameter in assets/zurueck-kontext.js und biegt seinen "Zurueck"-
+  // Knopf auf DIESEN Prozess in der Prozesslandschaft um.
+  function backUrlFor(slug) {
+    var folder = location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1);
+    return location.origin + folder + "prozess.html?p=" + encodeURIComponent(slug);
+  }
+  function withBackParam(url, slug) {
+    var sep = url.indexOf("?") > -1 ? "&" : "?";
+    return url + sep + "plZurueck=" + encodeURIComponent(backUrlFor(slug));
+  }
 
   function findProzess(slug) {
     var g = data();
@@ -93,9 +94,10 @@
         var t = tiles[i];
         var arrow = isAbsolute(t.url) ? "&#8599;" : "&rarr;";
         var target = isAbsolute(t.url) ? ' target="_blank" rel="noopener"' : "";
-        var onclick = isAbsolute(t.url) ? ' onclick="window.__plSetBack(\'' + p.slug + '\')"' : "";
+        var linkUrl = href(t.url);
+        if (isAbsolute(t.url)) linkUrl = withBackParam(linkUrl, p.slug);
         cards +=
-          '<a class="tool-card" href="' + esc(href(t.url)) + '"' + target + onclick + ">" +
+          '<a class="tool-card" href="' + esc(linkUrl) + '"' + target + ">" +
           '<div class="tool-icon">' + iconSvg(t.icon ? null : DOC_ICON) + "</div>" +
           '<div class="tool-name">' + esc(t.name) + "</div>" +
           (t.beschreibung ? '<div class="tool-desc">' + esc(t.beschreibung) + "</div>" : "") +
