@@ -93,11 +93,10 @@
       for (var i = 0; i < tiles.length; i++) {
         var t = tiles[i];
         var arrow = isAbsolute(t.url) ? "&#8599;" : "&rarr;";
-        var target = isAbsolute(t.url) ? ' target="_blank" rel="noopener"' : "";
         var linkUrl = href(t.url);
         if (isAbsolute(t.url)) linkUrl = withBackParam(linkUrl, p.slug);
         cards +=
-          '<a class="tool-card" href="' + esc(linkUrl) + '"' + target + ">" +
+          '<a class="tool-card" href="' + esc(linkUrl) + '">' +
           '<div class="tool-icon">' + iconSvg(t.icon ? null : DOC_ICON) + "</div>" +
           '<div class="tool-name">' + esc(t.name) + "</div>" +
           (t.beschreibung ? '<div class="tool-desc">' + esc(t.beschreibung) + "</div>" : "") +
@@ -115,7 +114,7 @@
         '<code>struktur.js</code> unter diesem Prozess als <code>tiles</code>-Eintrag ein. ' +
         'Anleitung: siehe <code>README.md</code>.</p></div>' +
         '<div class="tool-grid">' +
-        '<a class="tool-card add-card" href="README.md" target="_blank" rel="noopener">' +
+        '<a class="tool-card add-card" href="README.md">' +
         '<div class="tool-icon">' + iconSvg(PLUS_ICON) + "</div>" +
         '<div class="tool-name">So baust du ein Dashboard auf</div>' +
         '<div class="tool-desc">Kurzanleitung in der README &ouml;ffnen.</div></a>' +
