@@ -79,7 +79,9 @@ window.PROZESSLANDSCHAFT = {
         { name: "Spies Hecker Lackformeln",      url: "https://andreaslisin.github.io/lackierung-dashboard/08_Lackformeln/Lackformeln_Dashboard.html",
           beschreibung: "Mischformeln durchsuchen, Mengenrechner & Neuanlage." },
         { name: "Lackaufbauten",                 url: "https://andreaslisin.github.io/lackierung-dashboard/10_Lackaufbauten/index.html",
-          beschreibung: "Materialblöcke & kompletter Aufbau je Farbton." }
+          beschreibung: "Materialblöcke & kompletter Aufbau je Farbton." },
+        { name: "Paint Shop Assistent",           url: "http://einhaus-report:8000/dashboard/paint-shop-assistent.html",
+          beschreibung: "KI-Chat für die Lackierung: beantwortet Fragen zu Wartung, Lackformeln, Lackaufbauten, OEE u.a. und lotst zum passenden Tool. (In Vorbereitung — Link nach REFA-Zeitaufnahme-Muster, erst nach Freigabe durch Manuel erreichbar.)" }
       ]},
       { name: "EOL", slug: "eol" }
     ]},
